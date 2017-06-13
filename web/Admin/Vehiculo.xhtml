@@ -7,8 +7,10 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"      
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
      <ui:composition template="/WEB-INF/templateAdmin.xhtml">
         <ui:define name="title">Nuevo Vehiculo</ui:define>
         <ui:define name="cabecera">
@@ -68,29 +70,57 @@ and open the template in the editor.
                          </p:commandButton>
                     </div>
                 </h:form>
-                <h:form id="frm_listar" class="table striped">
+                
+            </div>
+            <div class="row">
+                <h:form id="frm_listar" class="col s12 center-align center-my-block">
+                    <div class="row">
+                        <div class="col s12 center-my-block">
                             <p:commandButton  value="Listar" 
-                                              actionListener="#{cVehiculo.doCargar()}"
-                                             update="frm_listar"/>
-                            <p:dataTable var="ve" value="#{cVehiculo.arreglo}" class="table striped">                                   
-                                <p:column headerText="Marca">
+                                      actionListener="#{cVehiculo.doCargar()}"
+                                      class="center-align btn blue"
+                                      update="frm_listar" style="display: block;align-self: center"/>
+                        </div>
+                        <div class="col s12 center-my-block">
+                            <c:if test="#{cVehiculo.arreglo.size() eq 0}">
+                                <p>No hay datos</p>
+                            </c:if>
+                            <h:dataTable var="ve" value="#{cVehiculo.arreglo}" class="striped bordered"
+                                         rendered="#{cVehiculo.arreglo.size()>0}">                                   
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Marca" />
+                                    </f:facet>
                                     <h:outputText value="#{ve.marca}" />
-                                </p:column>
-                                <p:column headerText="Modelo">
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Modelo" />
+                                    </f:facet>
                                     <h:outputText value="#{ve.modelo}" />
-                                </p:column>
-                               <p:column headerText="Placa">
+                                </h:column>
+                               <h:column>
+                                   <f:facet name="header">
+                                        <h:outputText value="Placa" />
+                                    </f:facet>
                                     <h:outputText value="#{ve.placa}" />
-                                </p:column>
-                                <p:column headerText="Estado">
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Estado" />
+                                    </f:facet>
                                     <h:outputText value="#{ve.estado}" />
-                                </p:column>
-                                <p:column headerText="Tipo Vehiculo">
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Tipo Vehiculo" />
+                                    </f:facet>
                                     <h:outputText value="#{ve.tipovehiculo.nom_tipo}" />
-                                </p:column>                                    
-                            </p:dataTable>                       
-
-                           
+                                </h:column>                                    
+                            </h:dataTable>
+                        </div>
+                    </div>
+                                          
                 </h:form>
             </div>
         </ui:define>
