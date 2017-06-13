@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/materialize.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Carenture - 
+            <ui:insert name="title"></ui:insert>
+        </title>
+        <ui:insert name="cabecera"></ui:insert>
+    </h:head>
+    <h:body>
+        <nav class="transparent">
+            <div class="nav-wrapper">
+                <span class="bold black-text cabeceratitulo">Carenture</span>
+                <span class="thin hide-on-small-only black-text cabeceratitulos"> - Renta un Auto</span>
+              <a href="#" data-activates="my-side-nav" class="button-collapse"><i class="material-icons black-text"  style="border:none">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                  <li class="col s4 "><a href="http://localhost:8080/AlquilerAutos/Admin/tipoVehiculo.xhtml" class="black-text">Tipo Vehiculo</a></li>
+                  <li class="col s4"><a href="http://localhost:8080/AlquilerAutos/Admin/Vehiculo.xhtml" class="black-text">Vehiculo</a></li>
+                  <li class="col s4"><a href="http://localhost:8080/AlquilerAutos/Admin/tipoDocumento.xhtml" class="black-text">DI</a></li>                  
+                  <li class="col s12  spacer"></li>
+              </ul>
+              <ul class="side-nav" id="my-side-nav">
+                <li class="col s4 black-text"><a href="http://localhost:8080/AlquilerAutos/Admin/tipoVehiculo.xhtml">Tipo Vehiculo</a></li>
+                <li class="col s4 black-text"><a href="http://localhost:8080/AlquilerAutos/Admin/Vehiculo.xhtml">Vehiculo</a></li>
+                 <li class="col s4 black-text"><a href="http://localhost:8080/AlquilerAutos/Admin/tipoDocumento.xhtml">DI</a></li>               
+              </ul>
+            </div>
+        </nav>
+    <ui:insert name="contenido">
+    </ui:insert>
+        <footer class="page-footer grey darken-3">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h4 class="white-text">Carenture</h4>
+                <p class="grey-text text-lighten-4">Adquiere tu Automovil muy facil, brindamos seguridad y calidad</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Mas infomacion:</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/moranvilela">Facebook</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.gmail.com">Gmail</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.yahoo.com">Yahoo</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.hotmail.com">Hotmail</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text  © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+    </h:body>
+    <script  type="text/javascript" src="#{request.contextPath}/resources/js/jquery-2.2.4.js"></script>
+    <script  type="text/javascript" src="#{request.contextPath}/resources/js/materialize.js"></script>
+    <script  type="text/javascript" src="#{request.contextPath}/resources/js/myJavascript.js"></script>
+    <h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
+</html>

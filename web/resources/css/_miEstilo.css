@@ -1,0 +1,23 @@
+.custom-carousel, #custom-carousel {
+  height: calc(100vh - 65px) !important; }
+
+.image-container-car {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.material-icons {
+  padding-top: .3em; }
+
+nav.transparent {
+  background: transprent !important; }
+
+.cabeceratitulo {
+  font-size: 40px; }
+
+.cabeceratitulos {
+  font-size: 35px; }
+
