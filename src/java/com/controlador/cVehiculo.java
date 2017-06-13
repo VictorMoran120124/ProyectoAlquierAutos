@@ -5,7 +5,9 @@
  */
 package com.controlador;
 
+import com.bean.TipoVehiculoLogica;
 import com.bean.VehiculoLogica;
+import com.entity.TipoVehiculo;
 import com.entity.Vehiculo;
 import com.util.Mensaje;
 import java.io.Serializable;
@@ -28,7 +30,10 @@ public class cVehiculo implements Serializable{
     public Vehiculo getReg() {
         return reg;
     }
-
+    
+    public List<TipoVehiculo> cargarTipoVehiculo() {
+        return new TipoVehiculoLogica().Listar();
+    }
     public void setReg(Vehiculo reg) {
         this.reg = reg;
     }
@@ -39,6 +44,15 @@ public class cVehiculo implements Serializable{
 
     public void setArreglo(List<Vehiculo> arreglo) {
         this.arreglo = arreglo;
+    }
+    
+    public void doNuevo() {
+        try {
+        reg = new Vehiculo();
+                
+         } catch (Exception e) {
+            Mensaje.js(e.getMessage());
+        }
     }
     public String doreg(){
         try {

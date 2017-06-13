@@ -16,69 +16,20 @@ and open the template in the editor.
         <ui:define name="cabecera">
         </ui:define>
         <ui:define name="contenido">
-            <div class="row center center-align center-block cabeceratitulos"><h5 >NUEVO VEHICULO</h5></div>
-            <div class="row center center-align center-block" style="margin-top:1em;display:flex;justify-content: center;" >
-                <h:form class="col s12 m6 white center-align" style="margin: auto;" id="form-fisr" >
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.marca}" id="marca" class="validate" required="true"/>
-                        <label for="marca" class="active">Marca del Vehiculo</label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.cilindros}" id="cilindros" class="validate" required="true"/>
-                        <label for="cilindros" class="active">Cantidad de Cilindros</label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.color}" id="color" class="validate" required="true"/>
-                        <label for="color" class="active">Color del Vehiculo</label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.modelo}" id="Modelo" class="validate" required="true"/>
-                        <label for="Modelo" class="active">Modelo del Vehiculo</label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.placa}" id="placa" class="validate" required="true"/>
-                        <label for="placa" class="active">Numero de Placa</label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.potencia}" id="potencia" class="validate" required="true"/>
-                        <label for="potencia" class="active">Potencia de Motor</label>
-                    </div>
-                     <div class="col s12 input-field">
-                         <h:inputText value="#{cVehiculo.reg.estado}" id="estado" class="validate" required="true"/>
-                        <label for="estado" class="active">Estado</label>
-                    </div>
-                     <div class="col s12 input-field">
-                         <h:inputText value="#{cVehiculo.reg.costo_hora}" id="costo_hora" class="validate" required="true"/>
-                        <label for="costo_hora" class="active">Costo por Hora </label>
-                    </div>
-                    <div class="col s12 input-field">
-                        <h:inputText value="#{cVehiculo.reg.costo_dia}" id="costo_dia" class="validate" required="true"/>
-                        <label for="costo_dia" class="active">Costo por Dia </label>
-                    </div>
-                     <div class="col s12 input-field">
-                         <h:inputText value="#{cVehiculo.reg.descripcion}" id="descripcion" class="validate" required="true"/>
-                        <label for="descripcion" class="active">Descripcion del Vehiculo </label>
-                    </div>
-                     <div class="col s12 input-field">
-                         <h:inputText value="#{cVehiculo.reg.tipovehiculo.id_tipo_vehiculo}" id="tipovehiculo" class="validate" required="true"/>
-                        <label for="tipovehiculo" class="active">Tipo del Vehiculo </label>
-                    </div>
-                     
-                    <div class="col s12 input-field">
-                        <p:commandButton  style="background: none;box-shadow: none" class="btn waves-effect waves-light blue darken-2" value="Guardar" >
-                            <p:ajax event="click" listener="#{cVehiculo.doreg()}"/>
-                         </p:commandButton>
-                    </div>
-                </h:form>
-                
-            </div>
             <div class="row">
                 <h:form id="frm_listar" class="col s12 center-align center-my-block">
                     <div class="row">
                         <div class="col s12 center-my-block">
+                            <p:commandButton  value="Nuevo" 
+                                      actionListener="#{cVehiculo.doNuevo()}"
+                                      class="left-align btn blue"
+                                      style="display: block;align-self: center"/>
+                            <a data-target="modalNuevoVehiculo" href="#modalNuevoVehiculo" onclick="activarModal()" class="btn blue modal-trigger" data-position="left">Nuevo
+                                <p:ajax event="click" listener="#{cVehiculo.doNuevo()}"  update="form-fisr"/>
+                            </a>
                             <p:commandButton  value="Listar" 
                                       actionListener="#{cVehiculo.doCargar()}"
-                                      class="center-align btn blue"
+                                      class="right-align btn blue"
                                       update="frm_listar" style="display: block;align-self: center"/>
                         </div>
                         <div class="col s12 center-my-block">
@@ -122,6 +73,69 @@ and open the template in the editor.
                     </div>
                                           
                 </h:form>
+            </div>
+            
+            <div id="modalNuevoVehiculo" class="modal modal-fixed-footer white">
+                <div class="modal-content white">
+                      <div class="row center center-align center-block cabeceratitulos"><h5 >NUEVO VEHICULO</h5></div>
+                    <h:form class="col s12 m6 white center-align" style="margin: auto;" id="form-fisr">
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.marca}" id="marca" class="validate" required="true"/>
+                            <label for="marca" class="active">Marca del Vehiculo</label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.cilindros}" id="cilindros" class="validate" required="true"/>
+                            <label for="cilindros" class="active">Cantidad de Cilindros</label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.color}" id="color" class="validate" required="true"/>
+                            <label for="color" class="active">Color del Vehiculo</label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.modelo}" id="Modelo" class="validate" required="true"/>
+                            <label for="Modelo" class="active">Modelo del Vehiculo</label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.placa}" id="placa" class="validate" required="true"/>
+                            <label for="placa" class="active">Numero de Placa</label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.potencia}" id="potencia" class="validate" required="true"/>
+                            <label for="potencia" class="active">Potencia de Motor</label>
+                        </div>
+                         <div class="col s12 input-field">
+                             <h:inputText value="#{cVehiculo.reg.estado}" id="estado" class="validate" required="true"/>
+                            <label for="estado" class="active">Estado</label>
+                        </div>
+                         <div class="col s12 input-field">
+                             <h:inputText value="#{cVehiculo.reg.costo_hora}" id="costo_hora" class="validate" required="true"/>
+                            <label for="costo_hora" class="active">Costo por Hora </label>
+                        </div>
+                        <div class="col s12 input-field">
+                            <h:inputText value="#{cVehiculo.reg.costo_dia}" id="costo_dia" class="validate" required="true"/>
+                            <label for="costo_dia" class="active">Costo por Dia </label>
+                        </div>
+                         <div class="col s12 input-field">
+                             <h:inputText value="#{cVehiculo.reg.descripcion}" id="descripcion" class="validate" required="true"/>
+                            <label for="descripcion" class="active">Descripcion del Vehiculo </label>
+                        </div>
+                        <div class="input-field col s12 ">
+                            <h:selectOneMenu id="tipovehiculo" required="true" class="select-tipovehiculo"  value="#{cVehiculo.reg.tipovehiculo}">
+                                <f:selectItem itemValue=""  itemLabel="Selecciona Tipo"/>
+                                <f:selectItems value="#{cVehiculo.cargarTipoVehiculo()}" 
+                                               var="tipov" itemLabel="#{tipov.nom_tipo}" 
+                                               itemValue="#{tipov.id_tipo_vehiculo}" />
+                             </h:selectOneMenu>
+                         <label for="tipovehiculo">Tipo Vehiculo</label>
+                        </div>
+
+                        <div class="col s12 input-field">
+                            <p:commandButton  style="background: none;box-shadow: none" class="btn waves-effect waves-light blue darken-2" value="Guardar" >
+                                <p:ajax event="click" listener="#{cVehiculo.doreg()}"/>
+                             </p:commandButton>
+                        </div>
+                    </h:form>
+                </div>
             </div>
         </ui:define>
      </ui:composition>
