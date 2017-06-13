@@ -54,4 +54,8 @@ public class cVehiculo implements Serializable{
         return null;
     }
     
+    public void doCargar() {
+        this.arreglo = new VehiculoLogica().Listar();
+    }
+    
 }
